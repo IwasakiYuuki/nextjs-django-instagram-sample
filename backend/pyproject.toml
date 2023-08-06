@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "django-account-auth-finish"
+version = "0.1.0"
+description = ""
+authors = ["IwasakiYuuki <2445yuuki@gmail.com>"]
+readme = "README.md"
+packages = [{include = "django_account_auth_finish"}]
+
+[tool.poetry.dependencies]
+python = "~3.8.0"
+django = "3.0"
+djangorestframework = "3.10"
+djangorestframework-simplejwt = "4.4.0"
+pyjwt = "1.7.1"
+django-cors-headers = "3.8.0"
+pillow = "8.1.2"
+django-types = "^0.17.0"
+
+# [tool.pyright]
+# venvPath = "."
+# venv = ".venv"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
