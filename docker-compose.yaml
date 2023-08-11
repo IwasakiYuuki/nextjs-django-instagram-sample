@@ -4,12 +4,22 @@ services:
     image: 'instagram-sample-frontend:latest'
     ports:
       - 3000:3000
+    volumes:
+      - ./frontend:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
     depends_on:
       - backend
   backend:
     image: 'instagram-sample-backend:latest'
     ports:
       - 8000:8000
+    volumes:
+      - ./backend:/usr/src/app
+      - venv:/usr/src/app/.venv
 
 networks:
   default:
+
+volumes:
+  node_modules:
+  venv:
