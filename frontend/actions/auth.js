@@ -53,7 +53,7 @@ export const edit_profile = (id, name, image) => async (dispatch) => {
     })
     const data = await res.json()
 
-    const res2 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/users/${id}/`, {
+    const res2 = await fetch(`/backend/api/auth/users/${id}/`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${data.access}`,

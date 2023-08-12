@@ -17,7 +17,7 @@ const Index = ({ staticPosts }) => {
   const user = useSelector((state) => state.auth.user)
 
   const { data: posts, mutate } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/post_list/`,
+    `/backend/api/post_list/`,
     fetcher,
     {
       fallbackData: staticPosts,
@@ -91,7 +91,7 @@ const Index = ({ staticPosts }) => {
             {user && (
               <div className="flex items-center space-x-4">
                 <Image
-                  src={user.image}
+                  src={"http://backend:8000" + user.image}
                   className="rounded-full"
                   alt={user.name}
                   width={50}

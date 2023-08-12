@@ -17,7 +17,7 @@ const DetailPost = ({ staticPost, id }) => {
   const delete_post_success = useSelector((state) => state.post.delete_post_success) // 追加
 
   const { data: post, mutate } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/post_detail/${id}/`,
+    `/backend/api/post_detail/${id}/`,
     fetcher,
     {
       fallbackData: staticPost,

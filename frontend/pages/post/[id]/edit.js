@@ -17,7 +17,7 @@ const EditPost = ({ staticPost, id }) => {
   const [image, setImage] = useState(null)
 
   const { data: post, mutate } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/post_detail/${id}/`,
+    `/backend/api/post_detail/${id}/`,
     fetcher,
     {
       fallbackData: staticPost,

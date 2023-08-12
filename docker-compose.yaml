@@ -1,9 +1,20 @@
 version: '3'
 services:
+  web:
+    image: nginx:1.21.6
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
   frontend:
     image: 'instagram-sample-frontend:latest'
-    ports:
-      - 3000:3000
+    expose:
+      - 3000
     volumes:
       - ./frontend:/usr/src/app
       - node_modules:/usr/src/app/node_modules
@@ -11,8 +22,8 @@ services:
       - backend
   backend:
     image: 'instagram-sample-backend:latest'
-    ports:
-      - 8000:8000
+    expose:
+      - 8000
     volumes:
       - ./backend:/usr/src/app
       - venv:/usr/src/app/.venv

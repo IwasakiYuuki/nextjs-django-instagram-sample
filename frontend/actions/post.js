@@ -36,7 +36,7 @@ export const new_post = (title, image, content) => async (dispatch) => {
     })
     const data = await res.json()
 
-    const res2 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/`, {
+    const res2 = await fetch(`/backend/api/posts/`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${data.access}`,
@@ -90,7 +90,7 @@ export const edit_post = (id, title, image, content) => async (dispatch) => {
     })
     const data = await res.json()
 
-    const res2 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}/`, {
+    const res2 = await fetch(`/backend/api/posts/${id}/`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${data.access}`,
